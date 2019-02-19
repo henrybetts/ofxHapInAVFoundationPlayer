@@ -335,14 +335,14 @@ static const void *PlayerRateContext = &ItemStatusContext;
             [asyncLock lock];
     
             if (currentHapFrame != nil){
-                [currentHapFrame release];
+                [currentHapFrame autorelease];
                 currentHapFrame = nil;
             }
             
             // release asset
             if (currentAsset != nil) {
                 [currentAsset cancelLoading];
-                [currentAsset release];
+                [currentAsset autorelease];
                 currentAsset = nil;
             }
             
@@ -370,19 +370,19 @@ static const void *PlayerRateContext = &ItemStatusContext;
                 
                 // release videouOutput
                 if (currentVideoOutput != nil) {
-                    [currentVideoOutput release];
+                    [currentVideoOutput autorelease];
                     currentVideoOutput = nil;
                 }
                 
                 if (currentHapTrack != nil){
-                    [currentHapTrack release];
+                    [currentHapTrack autorelease];
                     currentHapTrack = nil;
                 }
 
                 
                 [currentPlayer replaceCurrentItemWithPlayerItem:nil];
                 
-                [currentItem release];
+                [currentItem autorelease];
                 currentItem = nil;
             }
             
